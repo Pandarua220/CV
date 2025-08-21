@@ -54,7 +54,7 @@ education:
 
   - area: Exchange student
     institution: Nanyang Technological University (NTU), Singapore
-    date_start: 2025-8-5
+    date_start: 2025-08-05
     date_end: 2025-12-12
     summary: |
       
