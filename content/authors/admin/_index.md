@@ -1,13 +1,13 @@
 ---
 # Display name
-title: 吳健雄
+title: 钟一鸣
 
 # Name pronunciation (optional)
-name_pronunciation: Chien Shiung Wu
+name_pronunciation: Yiming Zhong
 
 # Full name (for SEO)
-first_name: Shiung Wu
-last_name: Chien
+first_name: Yiming
+last_name: Zhong
 
 # Status emoji
 status:
@@ -19,45 +19,28 @@ superuser: true
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 
-# Role/position/tagline
-role: Chief Scientist
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: OpenAI
-    url: https://openai.com/
+  - name: Southern University of Science and Technology (SUSTech), Shenzhen, China
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'Zhongym2026@163.com'
     label: E-mail Me
-  - icon: brands/x
-    url: https://twitter.com/GetResearchDev
-  - icon: brands/instagram
-    url: https://www.instagram.com/
-  - icon: brands/github
-    url: https://github.com/gcushen
-  - icon: brands/linkedin
-    url: https://www.linkedin.com/
-  - icon: academicons/google-scholar
-    url: https://scholar.google.com/
-  - icon: academicons/orcid
-    url: https://orcid.org/
 
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - AI for Healthcare
 
 education:
-  - area: PhD Artificial Intelligence
-    institution: Stanford University
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+  - area: Bachelor
+    institution: SUSTech
+    date_start: 2022-09-01
+    date_end: present 
     summary: |
-      Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
+      Thesis on _AI for healthcare_. Supervised by [Prof Wenjin Wang](https://sites.google.com/site/rppgwenjin) . Presented papers at 2 IEEE conferences (1 in EMBC and 1 in BHI), and 1 TBME journal paper is under review.
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
