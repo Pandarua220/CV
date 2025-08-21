@@ -149,11 +149,11 @@ languages:
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
   - title: Second Class Scholarship for Outstanding Student
-    date: '2023-11, 2024-11'
+    date: '2023-11'
 
 
   - title: Outstanding Volunteer Award
-    date: '2023-11, 2024-11'
+    date: '2023-11'
 
 
 
