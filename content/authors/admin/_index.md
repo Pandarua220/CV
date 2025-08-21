@@ -36,37 +36,33 @@ interests:
 
 education:
   - area: Bachelor
-    institution: SUSTech
+    institution: Southern University of Science and Technology (SUSTech), Shenzhen, China
     date_start: 2022-09-01
-    date_end: present 
+    expected_graduation_date: 06/2026
     summary: |
+      Cumulative GPA: 3.78/4.0 | Weighted Average Score: 90.36/100
+
       Thesis on _AI for healthcare_. Supervised by [Prof Wenjin Wang](https://sites.google.com/site/rppgwenjin) . Presented papers at 2 IEEE conferences (1 in EMBC and 1 in BHI), and 1 TBME journal paper is under review.
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
-  - area: MEng Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      GPA: 3.8/4.0
 
       Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+      - Big Medical Data
+      - Biomedical Optics
+      - Priciple of Biomedical Imaging
+
+  - area: Exchange student
+    institution: Nanyang Technological University (NTU), Singapore
+    date_start: 2025-08-05
+    date_end: 2025-12-12
     summary: |
-      GPA: 3.4/4.0
       
       Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-work:
+      - Control in Biosystem
+      - Machine Learning & Optimization for Bioengineer
+
+Volunteer & Leadership:
   - position: Director of Cloud Infrastructure
     company_name: GenCoin
     company_url: ''
@@ -95,18 +91,33 @@ work:
 skills:
   - name: Technical Skills
     items:
+      - name: Signal Processing
+        description: ''
+        percent: 100
+        icon: code-bracket
+      - name: Machine Learning & Deep Learning
+        description: ''
+        percent: 80
+        icon: chart-bar
+      - name: BCI (Brain-Computer Interface)
+        description: ''
+        percent: 20
+        icon: circle-stack
+  - name: Programming Languages
+    items:
       - name: Python
         description: ''
         percent: 80
         icon: code-bracket
-      - name: Data Science
+      - name: Matlab
         description: ''
         percent: 100
         icon: chart-bar
-      - name: SQL
+      - name: C/C++
         description: ''
         percent: 40
         icon: circle-stack
+
   - name: Hobbies
     color: '#eeac02'
     color_border: '#f0bf23'
@@ -125,11 +136,11 @@ skills:
         icon: camera
 
 languages:
-  - name: English
+  - name: Mandarin
     percent: 100
-  - name: Chinese
+  - name: English
     percent: 75
-  - name: Portuguese
+  - name: Cantonese
     percent: 25
 
 # Awards.
