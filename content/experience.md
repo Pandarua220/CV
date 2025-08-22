@@ -18,18 +18,18 @@ sections:
       date_format: 'January 2006'
       # Education or Experience section first?
       is_education_first: false
-  - block: resume-skills
+  - block: resume-Volunteer & Leadership
     content:
-      title: Skills & Hobbies
+      title: Volunteer & Leadership
       username: admin
     design:
       show_skill_percentage: false
-  - block: resume-awards
-    content:
-      title: Awards
-      username: admin
-  - block: resume-languages
-    content:
-      title: Languages
-      username: admin
+  # - block: resume-awards
+  #   content:
+  #     title: Awards
+  #     username: admin
+  # - block: resume-languages
+  #   content:
+  #     title: Languages
+  #     username: admin
 ---
