@@ -149,5 +149,5 @@ awards:
 
 ## About Me
 
-Yiming Zhong is currently a fourth-year student in the Department of Biomedical Engineering at Southern University of Science and Technology (SUSTech). His current research interest is AI for healthcare and he is willing to explore 
+Yiming Zhong is currently a fourth-year student in the Department of Biomedical Engineering at Southern University of Science and Technology (SUSTech). His current research interest is AI for healthcare and he is willing to explore other topics such as Biomedical Imaging and Brain-Computer Interference (BCI).
 
