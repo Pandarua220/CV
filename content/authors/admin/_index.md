@@ -17,7 +17,7 @@ last_name: Zhong
 superuser: true
 
 # Highlight the author in author lists? (true/false)
-highlight_name: true
+highlight_name: false
 
 
 # Organizations/Affiliations to display in Biography blox

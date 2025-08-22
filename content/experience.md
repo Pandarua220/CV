@@ -11,7 +11,7 @@ design:
 sections:
   - block: collection
     content:
-      title: Selected Volunteer Projects
+      title: Volunteer Projects
       text: Some of the volunteer projects that I have worked on.
       filters:
         folders:
