@@ -22,9 +22,7 @@ highlight_name: true
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Southern University of Science and Technology,
-  - location: Shenzhen, China
-          
+  - name: Southern University of Science and Technology
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -47,11 +45,11 @@ education:
       Cumulative GPA: 3.78/4.0 | Weighted Average Score: 90.36/100
 
       Thesis on _AI for healthcare_. Supervised by [Prof Wenjin Wang](https://sites.google.com/site/rppgwenjin) . Presented papers at 2 IEEE conferences (1 in EMBC and 1 in BHI), and 1 TBME journal paper is under review.
-    button:
-      text: 'Read Thesis'
-      url: 'https://example.com'
+    # button:
+    #   text: 'Read Thesis'
+    #   url: 'https://example.com'
 
-      Courses included:
+    Courses included:
       - Big Medical Data
       - Biomedical Optics
       - Priciple of Biomedical Imaging
@@ -67,28 +65,29 @@ education:
       - Machine Learning & Optimization for Bioengineer
 
 Volunteer & Leadership:
-  - position: Director of Cloud Infrastructure
-    company_name: GenCoin
+  - position: Director of Community Service Department
+    company_name: Shuren College
     company_url: ''
     company_logo: ''
-    date_start: 2021-01-01
-    date_end: ''
+    date_start: 2023-09-01
+    date_end: '2024-09-01'
     summary: |2-
       Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - position: Backend Software Engineer
-    company_name: X
+      - Coordinated 580 volunteers across 11 community programs, collectively contributing 2,850 service hours.
+      - Organized the 2023 Summer Teaching Program in Lianping county, crafting lesson plans and leading hands-on activities that blended science, sports, and life skills to inspire and empower students.
+  - position: Organizer
+    company_name: “Heart-to-Heart” Volunteer Teaching Program in Longchuan County
     company_url: ''
     company_logo: ''
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+    date_start: 2024-02-01
+    date_end: 2024-09-01
     summary: |
       Responsibilities include:
-      - Migrated infrastructure to a new data center
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      - Designed a program benefiting 102 primary school students, overseeing planning, implementation, and evaluation.
+      - Drafted activity proposals, developed contingency plans, recruited and trained volunteers, and scheduled logistics.
+      -	Managed daily operations, including logistics coordination, class assignments, volunteer briefings, and student feedback collection. 
+      -	Prepared financial documents, drafted research reports, and delivered program outcome presentations.
+      
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
