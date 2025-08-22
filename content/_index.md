@@ -37,14 +37,11 @@ sections:
       text: |-
         My previous work bridges computer vision and biomedical engineering to create non-contact health monitoring solutions, mainly focus on infant in NICUs. 
         
-        ##### Pain point: 
-        Traditional monitor approaches, like ECG and EEG, may cause infection and are impractical for long-term monitoring for fragile infants.
+        Previous Pain point: Traditional monitor approaches, like ECG and EEG, may cause infection and are impractical for long-term monitoring for fragile infants.
         
-        ##### Innovation:
-        Developed vision-based systems using rPPG (remote photoplethysmography) to extract heart rate/oxygenation without contact.
-                
-        ##### Current Focus: 
-        Develop camera-based sleep staging system for neonates that combine multimodal data such as heart rate, heart rate variability, respiratory rate and movement patterns to classify sleep stages autonomously, reducing NICU staff burden.
+        Innovation: To address the pain point, we developed vision-based systems using rPPG (remote photoplethysmography) to extract heart rate/oxygenation without contact.
+        
+        Current Focus: Develop camera-based sleep staging system for neonates that combine multimodal data such as heart rate, heart rate variability, respiratory rate and movement patterns to classify sleep stages autonomously, reducing NICU staff burden.
 
     design:
       columns: '1'
@@ -102,12 +99,12 @@ sections:
   #     offset: 0
   #     # Page order: descending (desc) or ascending (asc) date.
   #     order: desc
-    design:
-      # Choose a layout view
-      view: date-title-summary
-      # Reduce spacing
-      spacing:
-        padding: [0, 0, 0, 0]
+    # design:
+    #   # Choose a layout view
+    #   view: date-title-summary
+    #   # Reduce spacing
+    #   spacing:
+    #     padding: [0, 0, 0, 0]
   - block: cta-card
     demo: true # Only display this section in the Hugo Blox Builder demo site
     content:

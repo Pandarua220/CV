@@ -1,6 +1,6 @@
 ---
 # Display name
-title: 钟一鸣
+title: 一鸣 钟
 
 # Name pronunciation (optional)
 name_pronunciation: Yiming Zhong
@@ -9,9 +9,9 @@ name_pronunciation: Yiming Zhong
 first_name: Yiming
 last_name: Zhong
 
-# Status emoji
-status:
-  icon: ☕️
+# # Status emoji
+# status:
+#   icon: ☕️
 
 # Is this the primary user of the site?
 superuser: true
@@ -97,15 +97,15 @@ skills:
       - name: Python
         description: ''
         percent: 80
-        icon: code-bracket
+        # icon: code-bracket
       - name: Matlab
         description: ''
         percent: 100
-        icon: chart-bar
+        # icon: chart-bar
       - name: C/C++
         description: ''
         percent: 40
-        icon: circle-stack
+        # icon: circle-stack
 
   - name: Hobbies
     color: '#eeac02'
@@ -117,11 +117,11 @@ skills:
       - name: Tennis(developping)
         description: ''
         percent: 50
-        icon: tennis
+        # icon: tennis
       - name: Music
         description: ''
         percent: 80
-        icon: music
+        # icon: music
 
 languages:
   - name: Mandarin
@@ -136,14 +136,19 @@ languages:
 #   Only `title`, `awarder`, and `date` are required.
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: Second Class Scholarship for Outstanding Student
+  - title: Second Class Scholarship for Outstanding Student, 2022-2023
     awarder: Southern University of Science and Technology
-    date: '2022-09-01'
-    date: '2022-06-01'
-  - title: Outstanding Volunteer Award
+    date: '2023-10-01'
+  - title: Second Class Scholarship for Outstanding Student, 2023-2024
     awarder: Southern University of Science and Technology
-    date: '2023-09-01'
-    date: '2023-06-01'
+    date: '2024-10-01'
+
+  - title: Outstanding Volunteer Award, 2022-2023
+    awarder: Southern University of Science and Technology
+    date: '2023-10-01'
+  - title: Outstanding Volunteer Award, 2023-2024
+    awarder: Southern University of Science and Technology
+    date: '2024-10-01'
 
 ---
 
