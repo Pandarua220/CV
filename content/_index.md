@@ -37,9 +37,11 @@ sections:
       text: |-
         My previous work bridges computer vision and biomedical engineering to create non-contact health monitoring solutions, mainly focus on infant in NICUs. 
         
-        # Pain point #: Traditional monitor approaches, like ECG and EEG, may cause infection and are impractical for long-term monitoring for fragile infants.
+        ### Pain point: 
+        Traditional monitor approaches, like ECG and EEG, may cause infection and are impractical for long-term monitoring for fragile infants.
         
-        Innovation: Developed vision-based systems using rPPG (remote photoplethysmography) to extract heart rate/oxygenation without contact.
+        ### Innovation:
+        Developed vision-based systems using rPPG (remote photoplethysmography) to extract heart rate/oxygenation without contact.
         
         Key Achievement: First-authored paper (accepted by IEEE EMBC 2025) on limbs motion coordination analysis in preterm infants.
         
