@@ -1,14 +1,21 @@
 ---
-title: Video-based Seizure Detection in NICU
-date: 2024-04-26
-content:
-abstract: Limb movement coordination is a critical indicator in general movement analysis (GMA), which is often used to assess newborn neurological development. Asymmetry in limb movements may indicate brain injury or motor control disorders, also associated with conditions such as cerebral palsy. In this work, we present an automated video processing framework for assessing the coordination of left and right limb movements, aiming to assist healthcare professionals to evaluate infant's limb movement coordination during GMA. We use AggPose, a pose recognition tool based on a Transformer architecture, to extract 12 keypoints (including arms and legs) from video frames. The intensity of movement is calculated using the temporal standard deviation of the keypoint coordinates. Finally, the coordination of movement is analyzed by comparing the cross-correlation and Pearson correlation coefficients of the movement signals between left and right limbs. Our clinical dataset, created in the neonatal intensive care unit, includes 23 preterm infants without neurological disorders. The proposed method shows average cross-correlation and Pearson correlation coefficients of 0.788 and 0.712, respectively, indicating the potential in analyzing the motion coordination of infant limb movements.
+title: Multidimensional Video-based Contactless Infant Seizure Monitoring
+date: 2024-04-01
+Innovation: Introduced a camera-based solution for NICU settings, enabling contactless monitoring of infant motion and physiological metrics with improved precision and efficiency. 
+abstract: 
+  1.Developed a real-time monitoring and prediction algorithm for infant seizures in collaboration with a a leading tertiary hospital in Guangzhou, aiming to establish a low-cost, contactless detection system to mitigate resource limitations and inconsistencies in seizure diagnosis quality. 
+  2.Preprocessed raw ECG signals to extract heart rate and calculate heart rate variability (HRV).
+  3.Utilized remote photoplethysmography (rPPG) to extract heart rate and HRV from video data for non-invasive physiological monitoring. 
+  4.Applied optical flow techniques to analyze global and skin-region motion in vEEG videos.
+  5.Deployed open-source human pose estimation tools to detect infant keypoints and compute motion intensity.  
+  6.Analyzed limb movement intensity using cross-correlation and Pearson correlation coefficients to integrate motion and physiological signals.
+
+
 tags:
   - Video
   - Seizure
   - NICU
 ---
 
-Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures.
 
 <!--more-->
