@@ -92,20 +92,6 @@ Volunteer & Leadership:
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 skills:
-  - name: Technical Skills
-    items:
-      - name: Signal Processing
-        description: ''
-        percent: 100
-        icon: code-bracket
-      - name: Machine Learning & Deep Learning
-        description: ''
-        percent: 80
-        icon: chart-bar
-      - name: BCI (Brain-Computer Interface)
-        description: ''
-        percent: 20
-        icon: circle-stack
   - name: Programming Languages
     items:
       - name: Python
@@ -125,11 +111,11 @@ skills:
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking
+      - name: Badminton
         description: ''
-        percent: 60
-        icon: person-simple-walk
-      - name: Cats
+        percent: 100
+        icon: badminton
+      - name: 
         description: ''
         percent: 100
         icon: cat
@@ -152,6 +138,9 @@ languages:
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
   - title: Second Class Scholarship for Outstanding Student
+    awarder: Southern University of Science and Technology
+    date: '2022-09-01'
+    date: '2022-06-01'
   - title: Outstanding Volunteer Award
 
 ---
