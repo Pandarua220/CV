@@ -22,7 +22,7 @@ highlight_name: true
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Southern University of Science and Technology (SUSTech), Shenzhen, China
+  - name: Department of Biomedical Engineering, SUSTech, Shenzhen China
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -33,6 +33,8 @@ profiles:
 
 interests:
   - AI for Healthcare
+  - Computer Vision
+  - Machine Learning
 
 education:
   - area: Bachelor
