@@ -64,7 +64,7 @@ education:
       - Control in Biosystem
       - Machine Learning & Optimization for Bioengineer
 
-Volunteer & Leadership:
+Volunteer:
   - position: Director of Community Service Department
     company_name: Shuren College
     company_url: ''
