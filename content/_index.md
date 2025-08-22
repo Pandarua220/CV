@@ -17,7 +17,7 @@ sections:
       # Show a call-to-action button under your biography? (optional)
       button:
         text: Download CV
-        url: uploads/CV_Yiming_Zhong.pdf
+        url: uploads/CV_Yiming Zhong.pdf
     design:
       css_class: dark
       background:
@@ -37,15 +37,14 @@ sections:
       text: |-
         My previous work bridges computer vision and biomedical engineering to create non-contact health monitoring solutions, mainly focus on infant in NICUs. 
         
-        ### Pain point: 
+        ##### Pain point: 
         Traditional monitor approaches, like ECG and EEG, may cause infection and are impractical for long-term monitoring for fragile infants.
         
-        ### Innovation:
+        ##### Innovation:
         Developed vision-based systems using rPPG (remote photoplethysmography) to extract heart rate/oxygenation without contact.
-        
-        Key Achievement: First-authored paper (accepted by IEEE EMBC 2025) on limbs motion coordination analysis in preterm infants.
-        
-        Current Focus: Develop camera-based sleep staging system for neonates that combine multimodal data such as heart rate, heart rate variability, respiratory rate and movement patterns to classify sleep stages autonomously, reducing NICU staff burden.
+                
+        ##### Current Focus: 
+        Develop camera-based sleep staging system for neonates that combine multimodal data such as heart rate, heart rate variability, respiratory rate and movement patterns to classify sleep stages autonomously, reducing NICU staff burden.
 
     design:
       columns: '1'
