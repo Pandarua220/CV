@@ -114,15 +114,14 @@ skills:
       - name: Badminton
         description: ''
         percent: 100
-        icon: badminton
-      - name: 
+      - name: Tennis(developping)
         description: ''
-        percent: 100
-        icon: cat
-      - name: Photography
+        percent: 50
+        icon: tennis
+      - name: Music
         description: ''
         percent: 80
-        icon: camera
+        icon: music
 
 languages:
   - name: Mandarin
@@ -142,6 +141,9 @@ awards:
     date: '2022-09-01'
     date: '2022-06-01'
   - title: Outstanding Volunteer Award
+    awarder: Southern University of Science and Technology
+    date: '2023-09-01'
+    date: '2023-06-01'
 
 ---
 
