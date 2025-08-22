@@ -22,9 +22,9 @@ highlight_name: true
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Department of Biomedical Engineering,
-          Southern University of Science and Technology,
-          Shenzhen, China
+  - name: Southern University of Science and Technology,
+  - location: Shenzhen, China
+          
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
