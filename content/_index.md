@@ -17,7 +17,7 @@ sections:
       # Show a call-to-action button under your biography? (optional)
       button:
         text: Download CV
-        url: uploads/resume.pdf
+        url: uploads/CV_Yiming_Zhong.pdf
     design:
       css_class: dark
       background:
@@ -32,14 +32,19 @@ sections:
           parallax: false
   - block: markdown
     content:
-      title: '📚 My Research'
+      title: '📚 Previous Research'
       subtitle: ''
       text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
-
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
+        My previous work bridges computer vision and biomedical engineering to create non-contact health monitoring solutions, mainly focus on infant in NICUs. 
         
-        Please reach out to collaborate 😃
+        # Pain point #: Traditional monitor approaches, like ECG and EEG, may cause infection and are impractical for long-term monitoring for fragile infants.
+        
+        Innovation: Developed vision-based systems using rPPG (remote photoplethysmography) to extract heart rate/oxygenation without contact.
+        
+        Key Achievement: First-authored paper (accepted by IEEE EMBC 2025) on limbs motion coordination analysis in preterm infants.
+        
+        Current Focus: Develop camera-based sleep staging system for neonates that combine multimodal data such as heart rate, heart rate variability, respiratory rate and movement patterns to classify sleep stages autonomously, reducing NICU staff burden.
+
     design:
       columns: '1'
   - block: collection
@@ -63,39 +68,39 @@ sections:
         exclude_featured: false
     design:
       view: citation
-  - block: collection
-    id: talks
-    content:
-      title: Recent & Upcoming Talks
-      filters:
-        folders:
-          - event
-    design:
-      view: article-grid
-      columns: 1
-  - block: collection
-    id: news
-    content:
-      title: Recent News
-      subtitle: ''
-      text: ''
-      # Page type to display. E.g. post, talk, publication...
-      page_type: post
-      # Choose how many pages you would like to display (0 = all pages)
-      count: 5
-      # Filter on criteria
-      filters:
-        author: ""
-        category: ""
-        tag: ""
-        exclude_featured: false
-        exclude_future: false
-        exclude_past: false
-        publication_type: ""
-      # Choose how many pages you would like to offset by
-      offset: 0
-      # Page order: descending (desc) or ascending (asc) date.
-      order: desc
+  # - block: collection
+  #   id: talks
+  #   content:
+  #     title: Recent & Upcoming Talks
+  #     filters:
+  #       folders:
+  #         - event
+  #   design:
+  #     view: article-grid
+  #     columns: 1
+  # - block: collection
+  #   id: news
+  #   content:
+  #     title: Recent News
+  #     subtitle: ''
+  #     text: ''
+  #     # Page type to display. E.g. post, talk, publication...
+  #     page_type: post
+  #     # Choose how many pages you would like to display (0 = all pages)
+  #     count: 5
+  #     # Filter on criteria
+  #     filters:
+  #       author: ""
+  #       category: ""
+  #       tag: ""
+  #       exclude_featured: false
+  #       exclude_future: false
+  #       exclude_past: false
+  #       publication_type: ""
+  #     # Choose how many pages you would like to offset by
+  #     offset: 0
+  #     # Page order: descending (desc) or ascending (asc) date.
+  #     order: desc
     design:
       # Choose a layout view
       view: date-title-summary
