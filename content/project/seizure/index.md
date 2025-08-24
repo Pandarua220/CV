@@ -3,9 +3,9 @@ title: Multidimensional Video-based Contactless Infant Seizure Monitoring
 date: 2024-04-01
 
 tags:
-  - Video
   - Seizure
   - NICU
+  - Video-Based Monitor
 ---
 Developed a real-time monitoring and prediction algorithm for infant seizures in collaboration with a a leading tertiary hospital in Guangzhou, aiming to establish a low-cost, contactless detection system to mitigate resource limitations and inconsistencies in seizure diagnosis quality.
 
