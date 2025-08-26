@@ -40,7 +40,7 @@ education:
   - area: Bachelor
     institution: Southern University of Science and Technology (SUSTech), Shenzhen, China
     date_start: 2022-09-01
-    expected_graduation_date: 06/2026
+    date_end: 2026-07-01
     summary: |
       Cumulative GPA: 3.78/4.0 | Weighted Average Score: 90.36/100
 
