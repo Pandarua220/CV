@@ -19,13 +19,13 @@ main:
   - name: Projects
     url: projects/
     weight: 20
-    
+
   - name: Exprience
     url: experience/
     weight: 30
 
   - name: Volunteer & Leadership
-    url: volunteer/
+    url: volunteers/
     weight: 40
   # - name: Teaching
   #   url: teaching/
