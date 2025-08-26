@@ -13,7 +13,8 @@ sections:
   - block: collection
     content:
       title: Volunteer Projects
-      text: Some of the volunteer projects that I have worked on.
+      text: Some of the volunteer projects that I have organised.
+
       filters:
         folders:
           - volunteer
