@@ -31,17 +31,4 @@ sections:
     content:
       title: Languages
       username: admin
-
-  - block: collection
-    content:
-      title: Volunteer Projects
-      text: Some of the volunteer projects that I have worked on.
-      filters:
-        folders:
-          - volunteer
-
-    design:
-      view: article-grid
-      fill_image: false
-      columns: 3
 ---
