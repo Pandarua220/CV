@@ -9,7 +9,7 @@ design:
 
 # Page sections
 sections:
-  - block: resume-experience
+  - block: resume-volunteer
     content:
       username: admin
     design:
@@ -27,6 +27,7 @@ sections:
           - volunteer
 
     design:
+      date_format: 'January 2006'
       view: article-grid
       fill_image: false
       columns: 3
