@@ -27,10 +27,10 @@ Email:
   - name: Zhongym2026@163.com
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
-profiles:
-  - icon: at-symbol
-    url: 'Zhongym2026@163.com'
-    label: E-mail Me
+# profiles:
+#   - icon: at-symbol
+#     url: 'Zhongym2026@163.com'
+#     label: E-mail Me
 
 interests:
   - AI for Healthcare
