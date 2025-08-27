@@ -17,13 +17,14 @@ last_name: Zhong
 superuser: true
 
 # Highlight the author in author lists? (true/false)
-highlight_name: false
+highlight_name: true
 
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
   - name: Southern University of Science and Technology
-
+Email:
+  - name: Zhongym2026@163.com
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
