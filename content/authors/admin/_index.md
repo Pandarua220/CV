@@ -1,6 +1,6 @@
 ---
-# Display name
-title: 一鸣 钟
+# # Display name
+# title: 一鸣 钟
 
 # Name pronunciation (optional)
 name_pronunciation: Yiming Zhong
