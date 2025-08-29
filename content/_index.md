@@ -31,16 +31,16 @@ sections:
           position: center
           parallax: false
 
-  - block: Projects
-    # id: projects
-    content:
-      title: Projects
-      filters:
-        folders:
-          - project
-    design:
-      view: article-grid
-      columns: 2
+  # - block: Projects
+  #   # id: projects
+  #   content:
+  #     title: Projects
+  #     filters:
+  #       folders:
+  #         - project
+  #   design:
+  #     view: article-grid
+  #     columns: 2
 
   - block: collection
     id: papers
@@ -85,6 +85,7 @@ sections:
   #       exclude_featured: false
   #   design:
   #     view: citation
+
   # - block: collection
   #   id: talks
   #   content:
@@ -95,6 +96,7 @@ sections:
   #   design:
   #     view: article-grid
   #     columns: 1
+
   # - block: collection
   #   id: news
   #   content:
