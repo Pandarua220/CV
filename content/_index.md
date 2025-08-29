@@ -49,7 +49,7 @@ sections:
       subtitle: ''
       text: |-
 
-        ### Project Overview  
+        # Project Overview  
         This work bridges computer vision and biomedical engineering to develop non-contact health monitoring technologies, with a primary focus on neonates in the Neonatal Intensive Care Unit (NICU).
 
         ### Challenge  
