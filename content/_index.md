@@ -31,7 +31,7 @@ sections:
           position: center
           parallax: false
 
-  - block: Projects
+  - block: collection
     # id: projects
     content:
       title: Projects
