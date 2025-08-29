@@ -1,9 +1,9 @@
 ---
 # # Display name
-# title: Yiming Zhong
+title: Yiming Zhong
 
 # Name pronunciation (optional)
-name_pronunciation: Yiming Zhong
+# name_pronunciation: Yiming Zhong
 
 # Full name (for SEO)
 first_name: Yiming
@@ -155,5 +155,5 @@ awards:
 
 ## About Me
 
-Yiming Zhong is currently a fourth-year student in the Department of Biomedical Engineering at Southern University of Science and Technology (SUSTech). His current research interest is AI for healthcare and he is willing to explore other topics such as Biomedical Imaging and Brain-Computer Interference (BCI).
+I am a fourth-year undergraduate student majoring in Biomedical Engineering at the Southern University of Science and Technology (SUSTech). Currently, my primary research focus lies in AI for Healthcare, where I aim to explore how artificial intelligence can optimize medical workflows, enhance diagnostic accuracy. Additionally, I am eager to expand my academic horizons by delving into related interdisciplinary fields—such as Biomedical Imaging (e.g., OCT, MRI and quantitative analysis of these medical scans) and Brain-Computer Interface (BCI) technologies—given their close alignment with my background in biomedical engineering and passion for translating technical innovations into clinical impact.
 
