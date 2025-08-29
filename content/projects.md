@@ -13,6 +13,7 @@ sections:
     content:
       title: Selected Projects
       text: Here are a selection of projects that I have worked on over the past 2 years.
+      text: test
       filters:
         folders:
           - project
