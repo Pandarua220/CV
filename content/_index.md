@@ -37,8 +37,7 @@ sections:
       title: Projects
       filters:
         folders:
-          - projects
-        featured_only: true
+          - project
     design:
       view: article-grid
       columns: 2
