@@ -53,27 +53,29 @@ sections:
     design:
       view: article-grid
       columns: 2
-
-  # - block: markdown
-  #   content:
-  #     title: '📚 Previous Research'
-  #     subtitle: ''
-  #     text: |-
-
-  #       #### Project Overview  
-  #       This work bridges computer vision and biomedical engineering to develop non-contact health monitoring technologies, with a primary focus on neonates in the Neonatal Intensive Care Unit (NICU).
-
-  #       #### Challenge  
-  #       Traditional monitoring techniques, such as electrocardiography (ECG) and electroencephalography (EEG), pose risks of infection and skin damage, making them unsuitable for long-term use in vulnerable infant populations.
-
-  #       #### Innovation  
-  #       To overcome these limitations, we designed a vision-based system employing remote photoplethysmography (rPPG) to estimate vital signs—including heart rate and blood oxygenation—in a completely contact-free manner.
-
-  #       #### Current Focus  
-  #       We are expanding this approach to develop an automated sleep staging system for newborns. By integrating multimodal signals such as heart rate, heart rate variability, respiratory rate, and movement patterns captured via camera, the system aims to classify sleep stages autonomously, thereby reducing the operational burden on NICU clinical staff.
-
-  #   design:
-  #     columns: 4
+    
+  - block: resume-experience
+    content:
+      username: admin
+    design:
+      # Hugo date format
+      date_format: 'January 2006'
+      # Education or Experience section first?
+      is_education_first: false
+  - block: resume-skills
+    content:
+      title: Skills & Hobbies
+      username: admin
+    design:
+      show_skill_percentage: false
+  - block: resume-awards
+    content:
+      title: Awards
+      username: admin
+  - block: resume-languages
+    content:
+      title: Languages
+      username: admin
 
   # - block: collection
   #   content:
