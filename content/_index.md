@@ -32,7 +32,7 @@ sections:
           parallax: false
 
   - block: collection
-    # id: projects
+    id: projects
     content:
       title: Projects
       filters:
@@ -40,7 +40,7 @@ sections:
           - project
     design:
       view: article-grid
-      columns: 2
+      columns: 4
 
   - block: collection
     id: papers
