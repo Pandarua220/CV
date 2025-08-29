@@ -31,16 +31,16 @@ sections:
           position: center
           parallax: false
 
-  # - block: Projects
-  #   # id: projects
-  #   content:
-  #     title: Projects
-  #     filters:
-  #       folders:
-  #         - project
-  #   design:
-  #     view: article-grid
-  #     columns: 2
+  - block: Projects
+    # id: projects
+    content:
+      title: Projects
+      filters:
+        folders:
+          - project
+    design:
+      view: article-grid
+      columns: 2
 
   - block: collection
     id: papers
