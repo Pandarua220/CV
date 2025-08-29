@@ -34,7 +34,7 @@ sections:
   - block: collection
     id: papers
     content:
-      title: Featured Publications
+      title: Publications
       filters:
         folders:
           - publication
@@ -62,7 +62,7 @@ sections:
         We are expanding this approach to develop an automated sleep staging system for newborns. By integrating multimodal signals such as heart rate, heart rate variability, respiratory rate, and movement patterns captured via camera, the system aims to classify sleep stages autonomously, thereby reducing the operational burden on NICU clinical staff.
 
     design:
-      columns: '1'
+      columns: '4'
 
   # - block: collection
   #   content:
