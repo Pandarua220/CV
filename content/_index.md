@@ -30,21 +30,7 @@ sections:
           size: cover
           position: center
           parallax: false
-  - block: markdown
-    content:
-      title: '📚 Previous Research'
-      subtitle: ''
-      text: |-
-        My previous work bridges computer vision and biomedical engineering to create non-contact health monitoring solutions, mainly focus on infant in NICUs. 
-        
-        Previous Pain point: Traditional monitor approaches, like ECG and EEG, may cause infection and are impractical for long-term monitoring for fragile infants.
-        
-        Innovation: To address the pain point, we developed vision-based systems using rPPG (remote photoplethysmography) to extract heart rate/oxygenation without contact.
-        
-        Current Focus: Develop camera-based sleep staging system for neonates that combine multimodal data such as heart rate, heart rate variability, respiratory rate and movement patterns to classify sleep stages autonomously, reducing NICU staff burden.
 
-    design:
-      columns: '1'
   - block: collection
     id: papers
     content:
@@ -56,16 +42,38 @@ sections:
     design:
       view: article-grid
       columns: 2
-  - block: collection
+
+  - block: markdown
     content:
-      title: Recent Publications
-      text: ""
-      filters:
-        folders:
-          - publication
-        exclude_featured: false
+      title: '📚 Previous Research'
+      subtitle: ''
+      text: |-
+      
+        **Project Overview**  
+      This work bridges computer vision and biomedical engineering to develop non-contact health monitoring technologies, with a primary focus on neonates in the Neonatal Intensive Care Unit (NICU).
+
+      ### Challenge 
+      Traditional monitoring techniques, such as electrocardiography (ECG) and electroencephalography (EEG), pose risks of infection and skin damage, making them unsuitable for long-term use in vulnerable infant populations.
+
+      ### Innovation  
+      To overcome these limitations, we designed a vision-based system employing remote photoplethysmography (rPPG) to estimate vital signs—including heart rate and blood oxygenation—in a completely contact-free manner.
+
+      ### Current Focus  
+      We are expanding this approach to develop an automated sleep staging system for newborns. By integrating multimodal signals such as heart rate, heart rate variability, respiratory rate, and movement patterns captured via camera, the system aims to classify sleep stages autonomously, thereby reducing the operational burden on NICU clinical staff.
+
     design:
-      view: citation
+      columns: '1'
+
+  # - block: collection
+  #   content:
+  #     title: Recent Publications
+  #     text: ""
+  #     filters:
+  #       folders:
+  #         - publication
+  #       exclude_featured: false
+  #   design:
+  #     view: citation
   # - block: collection
   #   id: talks
   #   content:
