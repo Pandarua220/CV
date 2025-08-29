@@ -32,7 +32,7 @@ sections:
           parallax: false
 
   - block: Projects
-    id: projects
+    # id: projects
     content:
       title: Projects
       filters:
