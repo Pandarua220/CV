@@ -63,31 +63,31 @@ education:
       
       Courses included:
       - Control in Biosystem
-      - Machine Learning & Optimization for Bioengineer
+      - Machine Learning & Optimization for Bioengineers
 
-volunteer:
-  - position: Director of Community Service Department
-    company_name: Shuren College
-    company_url: ''
-    company_logo: ''
-    date_start: 2023-09-01
-    date_end: '2024-09-01'
-    summary: |2-
-      Responsibilities include:
-      - Coordinated 580 volunteers across 11 community programs, collectively contributing 2,850 service hours.
-      - Organized the 2023 Summer Teaching Program in Lianping county, crafting lesson plans and leading hands-on activities that blended science, sports, and life skills to inspire and empower students.
-  - position: Organizer
-    company_name: “Heart-to-Heart” Volunteer Teaching Program in Longchuan County
-    company_url: ''
-    company_logo: ''
-    date_start: 2024-02-01
-    date_end: 2024-09-01
-    summary: |
-      Responsibilities include:
-      - Designed a program benefiting 102 primary school students, overseeing planning, implementation, and evaluation.
-      - Drafted activity proposals, developed contingency plans, recruited and trained volunteers, and scheduled logistics.
-      -	Managed daily operations, including logistics coordination, class assignments, volunteer briefings, and student feedback collection. 
-      -	Prepared financial documents, drafted research reports, and delivered program outcome presentations.
+# volunteer:
+#   - position: Director of Community Service Department
+#     company_name: Shuren College
+#     company_url: ''
+#     company_logo: ''
+#     date_start: 2023-09-01
+#     date_end: '2024-09-01'
+#     summary: |2-
+#       Responsibilities include:
+#       - Coordinated 580 volunteers across 11 community programs, collectively contributing 2,850 service hours.
+#       - Organized the 2023 Summer Teaching Program in Lianping county, crafting lesson plans and leading hands-on activities that blended science, sports, and life skills to inspire and empower students.
+#   - position: Organizer
+#     company_name: “Heart-to-Heart” Volunteer Teaching Program in Longchuan County
+#     company_url: ''
+#     company_logo: ''
+#     date_start: 2024-02-01
+#     date_end: 2024-09-01
+#     summary: |
+#       Responsibilities include:
+#       - Designed a program benefiting 102 primary school students, overseeing planning, implementation, and evaluation.
+#       - Drafted activity proposals, developed contingency plans, recruited and trained volunteers, and scheduled logistics.
+#       -	Managed daily operations, including logistics coordination, class assignments, volunteer briefings, and student feedback collection. 
+#       -	Prepared financial documents, drafted research reports, and delivered program outcome presentations.
       
 
 # Skills
