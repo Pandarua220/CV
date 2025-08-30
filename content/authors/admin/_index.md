@@ -35,7 +35,7 @@ Email:
 interests:
   - AI for Healthcare
   - Computer Vision
-  - Machine Learning
+  - Signal Processing
 
 education:
   - area: Bachelor
