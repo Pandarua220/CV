@@ -78,6 +78,17 @@ sections:
       title: Languages
       username: admin
 
+  - block: collection
+    id: papers
+    content:
+      title: Publications
+      filters:
+        folders:
+          - volunteer
+    design:
+      view: article-grid
+      columns: 4
+      
   # - block: collection
   #   content:
   #     title: Recent Publications
