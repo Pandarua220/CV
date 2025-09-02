@@ -54,16 +54,8 @@ sections:
       view: article-grid
       columns: 2
     
-
-  - block: resume-experience
-    content: experience
-    username: admin
-    design:
-      # Hugo date format
-      date_format: 'January 2006'
-      # Education or Experience section first?
-      is_education_first: false
   - block: resume-skills
+    id: experience
     content:
       title: Skills & Hobbies
       username: admin
