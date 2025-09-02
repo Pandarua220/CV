@@ -155,6 +155,6 @@ awards:
 
 ## About Me
 
-I am a fourth-year undergraduate student majoring in Biomedical Engineering at the Southern University of Science and Technology (SUSTech). Currently, my primary research focus lies in AI for Healthcare, where I aim to explore how artificial intelligence can optimize medical workflows, enhance diagnostic accuracy. Additionally, I am eager to expand my academic horizons by delving into related interdisciplinary fields—such as Biomedical Imaging (e.g., OCT, MRI and quantitative analysis of these medical scans) and Brain-Computer Interface (BCI) technologies—given their close alignment with my background in biomedical engineering and passion for translating technical innovations into clinical impact.
+I am a fourth-year undergraduate student majoring in Biomedical Engineering at the Southern University of Science and Technology (SUSTech). Currently, my primary research focus lies in AI for Healthcare, where I aim to explore how artificial intelligence can optimize medical workflows, enhance diagnostic accuracy. Additionally, I am eager to expand my academic horizons by delving into related interdisciplinary fields, such as Biomedical Imaging (e.g., OCT, MRI and quantitative analysis of these medical scans) and Brain-Computer Interface (BCI), given their close alignment with my background in biomedical engineering and passion for translating technical innovations into clinical impact.
 
 E-mail: Zhongym2026@163.com
