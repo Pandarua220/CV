@@ -56,8 +56,8 @@ sections:
     
 
   - block: resume-experience
-    content:
-      username: admin
+    content: experience
+    username: admin
     design:
       # Hugo date format
       date_format: 'January 2006'
@@ -79,7 +79,7 @@ sections:
       username: admin
 
   - block: collection
-    id: papers
+    id: volunteers
     content:
       title: Volunteer Projects
       filters:
