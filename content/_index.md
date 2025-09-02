@@ -87,7 +87,7 @@ sections:
           - volunteer
     design:
       view: article-grid
-      columns: 4
+      columns: 3
       
   # - block: collection
   #   content:
