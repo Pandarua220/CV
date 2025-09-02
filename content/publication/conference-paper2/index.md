@@ -42,6 +42,7 @@ abstract: Heart rate variability (HRV) reflects the regulation of the infant aut
 summary: This study synchronously monitors GMs and USTHRV in a neonatal intensive care unit (NICU) to understand their physiological relationship, demonstrating the potential of UST-HRV in neonatal health monitoring.
 
 tags:
+  - BHI 2025
   - NICU
   - Health Monitoring
 
