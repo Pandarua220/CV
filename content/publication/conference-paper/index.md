@@ -42,6 +42,7 @@ abstract: Limb movement coordination is a critical indicator in general movement
 summary: Infant limb motion coordination analysis
 
 tags:
+  - EMBC 2025
   - Computer Vision
   - NICU
 
