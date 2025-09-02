@@ -81,7 +81,7 @@ sections:
   - block: collection
     id: papers
     content:
-      title: Publications
+      title: Volunteer Projects
       filters:
         folders:
           - volunteer
