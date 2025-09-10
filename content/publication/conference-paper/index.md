@@ -54,7 +54,7 @@ featured: true
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: 'Camera_based_Analysis_of_Motion_Coordination_between_Infant_Left_and_Right_Limbs_A_Clinical_Study_in_NICU.pdf'
+url_pdf: 'uploads/Camera_based_Analysis_of_Motion_Coordination_between_Infant_Left_and_Right_Limbs_A_Clinical_Study_in_NICU.pdf'
 # url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
 # url_dataset: 'https://github.com/HugoBlox/hugo-blox-builder'
 # url_poster: ''
