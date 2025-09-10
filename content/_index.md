@@ -15,12 +15,10 @@ sections:
       username: admin
       text: ""
       # Show a call-to-action button under your biography? (optional)
-      button:
+      button2:
         text: Download CV
         url: uploads/CV_Yiming_Zhong.pdf
-      button:
-        text: Download Transcript
-        url: uploads/CV_Yiming_Zhong.pdf
+
     design:
       css_class: dark
       background:
