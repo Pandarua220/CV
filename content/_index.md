@@ -18,6 +18,9 @@ sections:
       button:
         text: Download CV
         url: uploads/CV_Yiming_Zhong.pdf
+        
+        text: Do you want to download my transcript?
+        url: uploads/Transcript_Yiming_Zhong.pdf
 
     design:
       css_class: dark
