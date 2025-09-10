@@ -18,6 +18,9 @@ sections:
       button:
         text: Download CV
         url: uploads/CV_Yiming_Zhong.pdf
+      button:
+        text: Download Transcript
+        url: uploads/CV_Yiming_Zhong.pdf
     design:
       css_class: dark
       background:
