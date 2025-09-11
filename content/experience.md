@@ -12,7 +12,7 @@ sections:
   - block: resume-experience
     content:
       username: admin
-      åbutton:
+      button:
         text: Download Transcript
         url: uploads/CV_Yiming_Zhong.pdf
     design:
