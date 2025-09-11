@@ -12,6 +12,9 @@ sections:
   - block: resume-experience
     content:
       username: admin
+      åbutton:
+        text: Download Transcript
+        url: uploads/CV_Yiming_Zhong.pdf
     design:
       # Hugo date format
       date_format: 'January 2006'

@@ -60,9 +60,7 @@ sections:
     id: experience
     content:
       username: admin
-      button:
-        text: Download Transcript
-        url: uploads/CV_Yiming_Zhong.pdf
+
     design:
       # Hugo date format
       date_format: 'January 2006'
