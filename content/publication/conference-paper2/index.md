@@ -22,7 +22,7 @@ author_notes:
   - 'Corresponding Author, BME, SUSTech' 
 
 date: '2025-10-29'
-doi: ''
+doi: '10.1109/BHI67747.2025.11269502'
 
 # Schedule page publish date (NOT publication's date).
 publishDate: '2017-01-01T00:00:00Z'
