@@ -21,10 +21,12 @@ highlight_name: true
 
 
 # Organizations/Affiliations to display in Biography blox
+role: PhD student in Computer Science
+
 organizations:
-  - name: Southern University of Science and Technology
+  - name: Vanderbilt University
 Email:
-  - name: Zhongym2026@163.com
+  - name: yiming.zhong@vanderbilt.edu
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 # profiles:
@@ -35,7 +37,7 @@ Email:
 interests:
   - AI for Healthcare
   - Computer Vision
-  - Signal and Image Processing
+  - Medical Image Analysis
 
 education:
   - area: Bachelor
@@ -155,6 +157,8 @@ awards:
 
 ## About Me
 
-I am a fourth-year undergraduate student majoring in Biomedical Engineering at the Southern University of Science and Technology (SUSTech). Currently, my primary research focus lies in AI for Healthcare, where I aim to explore how artificial intelligence can optimize medical workflows, enhance diagnostic accuracy. Additionally, I am eager to expand my academic horizons by delving into related interdisciplinary fields, such as Biomedical Imaging (e.g., OCT, MRI and quantitative analysis of these medical scans) and Brain-Computer Interface (BCI), given their close alignment with my background in biomedical engineering and passion for translating technical innovations into clinical impact.
+I am a first-year PhD student in Computer Science at Vanderbilt. My current research interest lies on AI for Healthcare, where I am particularly interested in leveraging artificial intelligence to optimize clinical workflows and improve diagnostic accuracy. Before joining Vanderbilt, I received my B.S degree from the Department of Biomedical Engineering at Southern University of Science and Technology (SUSTech) in 2026. Outside of research, I enjoy playing badminton and am trying tennis.
 
-E-mail: Zhongym2026@163.com
+E-mail: yiming.zhong@vanderbilt.edu
+
+_Last updated: September 24, 2026_
