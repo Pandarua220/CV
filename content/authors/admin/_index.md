@@ -35,9 +35,9 @@ Email:
 #     label: E-mail Me
 
 interests:
-  - Medical Image Analysis
+  - AI for Healthcare
   - Computer Vision
-  - Artificial Intelligence
+  - Medical Image Analysis
 
 education:
   - area: Bachelor
