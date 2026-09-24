@@ -35,9 +35,9 @@ Email:
 #     label: E-mail Me
 
 interests:
-  - AI for Healthcare
+  - Medical Image Analysis
   - Computer Vision
-  - Signal and Image Processing
+  - Artificial Intelligence
 
 education:
   - area: Bachelor
