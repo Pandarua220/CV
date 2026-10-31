@@ -30,7 +30,7 @@ main:
     weight: 14
 
   - name: rPPG Demo
-    url: rppg/
+    url: /#rppg
     weight: 15
   # - name: Teaching
   #   url: teaching/

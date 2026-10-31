@@ -1,0 +1,128 @@
+{{/* Homepage block: live rPPG heart-rate demo (scripts in static/rppg/). */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $title := $block.content.title | emojify | $page.RenderString }}
+{{ $text := $block.content.text | emojify | $page.RenderString | safeHTML }}
+{{ $css := resources.Get "css/rppg.css" | minify | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+<div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center px-6 mb-8">
+  <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ $title }}</div>
+  {{ with $text }}<div class="prose prose-slate dark:prose-invert max-w-prose">{{ . }}</div>{{ end }}
+</div>
+
+<div class="rppg-demo">
+    <div class="demo">
+      <div class="left">
+      <div class="card">
+        <div class="stage">
+          <canvas id="rppg-view" aria-label="Camera view with the skin regions used for measurement"></canvas>
+          <video id="rppg-video" playsinline muted></video>
+          <div class="placeholder" id="rppg-placeholder">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/>
+              <path d="M3.5 12h4l2-3 3 6 2-3h6"/>
+            </svg>
+            <p>Your video never leaves this device. All processing happens locally in the browser, and nothing is uploaded or stored.</p>
+          </div>
+        </div>
+        <div class="controls">
+          <button id="rppg-start" type="button">Start camera</button>
+          <button id="rppg-stop" type="button" class="secondary" hidden>Stop</button>
+          <div class="status" id="rppg-status" role="status" aria-live="polite">Press start and allow camera access.</div>
+        </div>
+        <div class="progress" id="rppg-progress" hidden><div id="rppg-progress-bar"></div></div>
+        <div class="chips">
+          <span class="chip" id="rppg-tracker"></span>
+          <span class="chip" id="rppg-fps"></span>
+        </div>
+      </div>
+
+      <div class="card signature">
+        <div class="chart-head">
+          <h3>Pulse signature of your camera</h3>
+          <span class="chip" id="rppg-sig-status">Prior</span>
+        </div>
+        <p class="sig-note">
+          How strongly your pulse shows up in each colour channel, learned live for your camera and lighting and used
+          by PBV and DIS. Ticks mark the default.
+        </p>
+        <div class="bars" aria-label="Pulse signature per colour channel">
+          <div class="bar-row"><span>R</span><div class="track"><div class="fill r" id="rppg-sig-r"></div><div class="mark" id="rppg-prior-r"></div></div><b id="rppg-sig-r-val">–</b></div>
+          <div class="bar-row"><span>G</span><div class="track"><div class="fill g" id="rppg-sig-g"></div><div class="mark" id="rppg-prior-g"></div></div><b id="rppg-sig-g-val">–</b></div>
+          <div class="bar-row"><span>B</span><div class="track"><div class="fill b" id="rppg-sig-b"></div><div class="mark" id="rppg-prior-b"></div></div><b id="rppg-sig-b-val">–</b></div>
+        </div>
+        <div class="sig-meta" id="rppg-sig-meta"></div>
+        <div class="sig-controls">
+          <div class="seg" role="radiogroup" aria-label="Signature used by PBV and DIS">
+            <label><input type="radio" name="rppg-sig-mode" value="calibrated" checked>Calibrated</label>
+            <label><input type="radio" name="rppg-sig-mode" value="prior">Fixed prior</label>
+          </div>
+          <button class="link" id="rppg-sig-reset" type="button">Reset calibration</button>
+        </div>
+      </div>
+      </div>
+
+      <div class="results">
+        <div class="methods">
+          <div class="card method">
+            <div class="name"><i style="background: var(--pos)"></i>POS</div>
+            <div class="sub">Plane-Orthogonal-to-Skin</div>
+            <div class="bpm"><strong id="rppg-pos-bpm">--</strong><span>BPM</span></div>
+            <div class="quality" id="rppg-pos-quality">Waiting for signal</div>
+            <canvas class="wave" id="rppg-pos-wave" aria-label="POS pulse waveform"></canvas>
+          </div>
+          <div class="card method">
+            <div class="name"><i style="background: var(--pbv)"></i>PBV</div>
+            <div class="sub">Blood volume pulse signature</div>
+            <div class="bpm"><strong id="rppg-pbv-bpm">--</strong><span>BPM</span></div>
+            <div class="quality" id="rppg-pbv-quality">Waiting for signal</div>
+            <canvas class="wave" id="rppg-pbv-wave" aria-label="PBV pulse waveform"></canvas>
+          </div>
+          <div class="card method">
+            <div class="name"><i style="background: var(--dis)"></i>DIS</div>
+            <div class="sub">Discriminative signatures</div>
+            <div class="bpm"><strong id="rppg-dis-bpm">--</strong><span>BPM</span></div>
+            <div class="quality" id="rppg-dis-quality">Waiting for signal</div>
+            <canvas class="wave" id="rppg-dis-wave" aria-label="DIS pulse waveform"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <div class="chart-head">
+            <h3>Pulse spectrum (last 10 s)</h3>
+            <div class="legend"><span><i style="background: var(--pos)"></i>POS</span><span><i style="background: var(--pbv)"></i>PBV</span><span><i style="background: var(--dis)"></i>DIS</span></div>
+          </div>
+          <canvas class="spectrum" id="rppg-spectrum" aria-label="Pulse spectrum"></canvas>
+          <div class="axis-note">Heart rate (BPM). The highest peak is your estimated heart rate.</div>
+        </div>
+        <div class="card">
+          <div class="chart-head">
+            <h3>Spectrogram (last 60 s)</h3>
+            <select id="rppg-spec-method" aria-label="Algorithm shown in the spectrogram">
+              <option value="dis">DIS</option>
+              <option value="pbv">PBV</option>
+              <option value="pos">POS</option>
+            </select>
+          </div>
+          <canvas class="spectrogram" id="rppg-spectrogram" aria-label="Heart rate spectrogram"></canvas>
+          <div class="axis-note">Vertical axis: heart rate (BPM). A steady bright band means a stable pulse.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tips">
+      <div class="tip"><b>Light your face evenly</b>Face a window or lamp; avoid strong backlight and flickering lights.</div>
+      <div class="tip"><b>Stay still for 15 s</b>Sit about 50 cm from the camera and breathe normally. Talking and head movement add noise.</div>
+      <div class="tip"><b>Compare the methods</b>Move your head slightly and see which algorithm keeps a steady band in the spectrogram.</div>
+    </div>
+
+    <p class="note">
+      <strong>For illustration only, not a medical device.</strong> Lighting, skin tone, camera quality and movement
+      all affect accuracy.
+    </p>
+    <p class="note">
+      Ported from the MATLAB code of my undergraduate research at SUSTech. Face detection by
+      <a href="https://ai.google.dev/edge/mediapipe/solutions/vision/face_detector" target="_blank" rel="noopener">MediaPipe</a>.
+    </p>
+</div>
+<script type="module" src="{{ "rppg/app.js" | relURL }}"></script>

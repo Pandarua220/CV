@@ -10,7 +10,8 @@ const MEDIAPIPE = 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14'
 const FACE_MODEL = 'https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite';
 const METHODS = { pos: 'POS', pbv: 'PBV', dis: 'DIS' };
 
-const $ = (id) => document.getElementById(id);
+// all element ids in the demo section carry an `rppg-` prefix
+const $ = (id) => document.getElementById(`rppg-${id}`);
 const els = {
   start: $('start'), stop: $('stop'), video: $('video'), view: $('view'), placeholder: $('placeholder'),
   status: $('status'), tracker: $('tracker'), fps: $('fps'), progress: $('progress'), progressBar: $('progress-bar'),
@@ -44,7 +45,7 @@ let spectrogram = [];
 let specMethod = 'dis';
 
 function css(name) {
-  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  return getComputedStyle(els.view).getPropertyValue(name).trim();
 }
 
 function emptyHistory() {
@@ -460,7 +461,6 @@ async function start() {
   spectrogram = [];
   face = null;
   running = true;
-  document.body.classList.add('running');
   els.placeholder.hidden = true;
   els.stop.hidden = false;
   els.start.hidden = true;
@@ -474,7 +474,6 @@ function stop() {
   if (stream) stream.getTracks().forEach((t) => t.stop());
   stream = null;
   els.video.srcObject = null;
-  document.body.classList.remove('running');
   els.placeholder.hidden = false;
   els.stop.hidden = true;
   els.start.hidden = false;
@@ -489,7 +488,7 @@ els.specMethod.addEventListener('change', (e) => {
   specMethod = e.target.value;
   spectrogram = [];
 });
-document.querySelectorAll('input[name="sig-mode"]').forEach((input) => {
+document.querySelectorAll('input[name="rppg-sig-mode"]').forEach((input) => {
   input.addEventListener('change', () => {
     useCalibrated = input.value === 'calibrated';
     if (engine) engine.useCalibrated = useCalibrated;
