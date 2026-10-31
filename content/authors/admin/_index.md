@@ -53,7 +53,7 @@ education:
     summary: |
       Cumulative GPA: 3.79/4.0 | Weighted Average Score: 90.68/100
 
-      Thesis on _AI for healthcare_. Supervised by [Prof Wenjin Wang](https://sites.google.com/site/rppgwenjin) . Presented papers at 2 IEEE conferences (1 in EMBC and 1 in BHI), and 1 TBME journal paper is under review.
+      Thesis on _AI for healthcare_. Supervised by [Dr. Wenjin Wang](https://sites.google.com/site/rppgwenjin). Presented papers at 2 IEEE conferences (1 in EMBC and 1 in BHI), and 1 TBME journal paper is under review.
 
       Courses included:
       - Big Medical Data
