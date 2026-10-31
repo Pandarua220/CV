@@ -28,6 +28,10 @@ main:
   - name: Volunteer & Leadership
     url: /#volunteers
     weight: 14
+
+  - name: rPPG Demo
+    url: rppg/
+    weight: 15
   # - name: Teaching
   #   url: teaching/
   #   weight: 40
