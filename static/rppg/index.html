@@ -24,7 +24,11 @@
       --accent-ink: #ffffff;
       --grid: #e2e8f0;
       --pos: #2563eb;
+      --pbv: #7c3aed;
       --dis: #059669;
+      --ch-r: #e11d48;
+      --ch-g: #16a34a;
+      --ch-b: #2563eb;
       --good: #059669;
       --fair: #d97706;
       --poor: #dc2626;
@@ -42,7 +46,11 @@
         --accent-ink: #052e1f;
         --grid: #1f2a3c;
         --pos: #60a5fa;
+        --pbv: #a78bfa;
         --dis: #34d399;
+        --ch-r: #fb7185;
+        --ch-g: #4ade80;
+        --ch-b: #60a5fa;
         --good: #34d399;
         --fair: #fbbf24;
         --poor: #f87171;
@@ -60,7 +68,11 @@
       --accent-ink: #052e1f;
       --grid: #1f2a3c;
       --pos: #60a5fa;
+      --pbv: #a78bfa;
       --dis: #34d399;
+      --ch-r: #fb7185;
+      --ch-g: #4ade80;
+      --ch-b: #60a5fa;
       --good: #34d399;
       --fair: #fbbf24;
       --poor: #f87171;
@@ -110,20 +122,21 @@
     button:disabled { opacity: 0.5; cursor: not-allowed; }
     .status { font-size: 14px; color: var(--muted); flex: 1 1 200px; }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-size: 12px; }
-    .chip { padding: 2px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); border: 1px solid var(--border); }
+    .chip { font-size: 12px; padding: 2px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); border: 1px solid var(--border); }
     .chip:empty { display: none; }
     .chip[data-state="ok"] { color: var(--good); }
     .chip[data-state="failed"] { color: var(--fair); }
     .progress { height: 4px; background: var(--surface-2); border-radius: 999px; margin-top: 12px; overflow: hidden; }
     .progress > div { height: 100%; width: 0; background: var(--accent); transition: width 0.3s; }
-    .results { display: grid; gap: 16px; }
-    .methods { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    @media (max-width: 480px) { .methods { grid-template-columns: 1fr; } }
+    .results, .left { display: grid; gap: 16px; }
+    .methods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    @media (max-width: 560px) { .methods { grid-template-columns: minmax(0, 1fr); } }
+    .methods .card { padding: 14px; }
     .method .name { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
     .method .name i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
     .method .sub { font-size: 12px; color: var(--muted); }
     .bpm { display: flex; align-items: baseline; gap: 6px; margin: 6px 0 2px; }
-    .bpm strong { font-size: 44px; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+    .bpm strong { font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
     .bpm span { color: var(--muted); font-size: 14px; }
     .quality { font-size: 12px; color: var(--muted); }
     .quality[data-level="good"] { color: var(--good); }
@@ -138,6 +151,25 @@
     .legend i { display: inline-block; width: 12px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
     select { font: inherit; font-size: 13px; padding: 2px 6px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); }
     .axis-note { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .sig-note { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+    .bars { display: grid; gap: 8px; }
+    .bar-row { display: grid; grid-template-columns: 16px minmax(0, 1fr) 40px; align-items: center; gap: 10px; font-size: 13px; }
+    .bar-row > span { color: var(--muted); font-weight: 600; }
+    .bar-row > b { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; }
+    .track { position: relative; height: 10px; background: var(--surface-2); border-radius: 999px; }
+    .fill { height: 100%; border-radius: 999px; transition: width 0.4s; }
+    .fill.r { background: var(--ch-r); }
+    .fill.g { background: var(--ch-g); }
+    .fill.b { background: var(--ch-b); }
+    .mark { position: absolute; top: -3px; width: 2px; height: 16px; margin-left: -1px; background: var(--text); opacity: 0.55; }
+    .sig-meta { font-size: 12px; color: var(--muted); margin-top: 10px; }
+    .sig-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; }
+    .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; font-size: 13px; }
+    .seg label { padding: 4px 12px; cursor: pointer; color: var(--muted); }
+    .seg input { position: absolute; opacity: 0; pointer-events: none; }
+    .seg label:has(input:checked) { background: var(--accent); color: var(--accent-ink); }
+    .seg label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: -2px; }
+    button.link { background: none; color: var(--accent); padding: 0; font-weight: 500; font-size: 13px; }
     .tips { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
     .tip { font-size: 14px; color: var(--muted); }
     .tip b { color: var(--text); display: block; }
@@ -165,12 +197,13 @@
       <p class="lede">
         Every heartbeat slightly changes the amount of blood in your facial skin, which changes the colour of
         the skin by a tiny fraction that your eyes can't see. <strong>Remote photoplethysmography (rPPG)</strong>
-        recovers this pulse signal from an ordinary video. This demo runs the POS and DIS algorithms from my
+        recovers this pulse signal from an ordinary video. This demo runs the POS, PBV and DIS algorithms from my
         undergraduate lab's research on contactless vital-sign monitoring for neonates in the NICU, live in your browser.
       </p>
     </header>
 
     <section class="demo">
+      <div class="left">
       <div class="card">
         <div class="stage">
           <canvas id="view" aria-label="Camera view with the skin regions used for measurement"></canvas>
@@ -195,6 +228,31 @@
         </div>
       </div>
 
+      <div class="card signature">
+        <div class="chart-head">
+          <h3>Pulse signature of your camera</h3>
+          <span class="chip" id="sig-status">Prior</span>
+        </div>
+        <p class="sig-note">
+          How strongly your pulse shows up in each colour channel. It depends on the camera and the lighting, so it is
+          learned live, using the POS pulse as a reference. PBV and DIS use it. Ticks mark the textbook prior.
+        </p>
+        <div class="bars" aria-label="Pulse signature per colour channel">
+          <div class="bar-row"><span>R</span><div class="track"><div class="fill r" id="sig-r"></div><div class="mark" id="prior-r"></div></div><b id="sig-r-val">–</b></div>
+          <div class="bar-row"><span>G</span><div class="track"><div class="fill g" id="sig-g"></div><div class="mark" id="prior-g"></div></div><b id="sig-g-val">–</b></div>
+          <div class="bar-row"><span>B</span><div class="track"><div class="fill b" id="sig-b"></div><div class="mark" id="prior-b"></div></div><b id="sig-b-val">–</b></div>
+        </div>
+        <div class="sig-meta" id="sig-meta"></div>
+        <div class="sig-controls">
+          <div class="seg" role="radiogroup" aria-label="Signature used by PBV and DIS">
+            <label><input type="radio" name="sig-mode" value="calibrated" checked>Calibrated</label>
+            <label><input type="radio" name="sig-mode" value="prior">Fixed prior</label>
+          </div>
+          <button class="link" id="sig-reset" type="button">Reset calibration</button>
+        </div>
+      </div>
+      </div>
+
       <div class="results">
         <div class="methods">
           <div class="card method">
@@ -203,6 +261,13 @@
             <div class="bpm"><strong id="pos-bpm">--</strong><span>BPM</span></div>
             <div class="quality" id="pos-quality">Waiting for signal</div>
             <canvas class="wave" id="pos-wave" aria-label="POS pulse waveform"></canvas>
+          </div>
+          <div class="card method">
+            <div class="name"><i style="background: var(--pbv)"></i>PBV</div>
+            <div class="sub">Blood volume pulse signature</div>
+            <div class="bpm"><strong id="pbv-bpm">--</strong><span>BPM</span></div>
+            <div class="quality" id="pbv-quality">Waiting for signal</div>
+            <canvas class="wave" id="pbv-wave" aria-label="PBV pulse waveform"></canvas>
           </div>
           <div class="card method">
             <div class="name"><i style="background: var(--dis)"></i>DIS</div>
@@ -215,7 +280,7 @@
         <div class="card">
           <div class="chart-head">
             <h3>Pulse spectrum (last 10 s)</h3>
-            <div class="legend"><span><i style="background: var(--pos)"></i>POS</span><span><i style="background: var(--dis)"></i>DIS</span></div>
+            <div class="legend"><span><i style="background: var(--pos)"></i>POS</span><span><i style="background: var(--pbv)"></i>PBV</span><span><i style="background: var(--dis)"></i>DIS</span></div>
           </div>
           <canvas class="spectrum" id="spectrum" aria-label="Pulse spectrum"></canvas>
           <div class="axis-note">Heart rate (BPM). The highest peak is your estimated heart rate.</div>
@@ -225,6 +290,7 @@
             <h3>Spectrogram (last 60 s)</h3>
             <select id="spec-method" aria-label="Algorithm shown in the spectrogram">
               <option value="dis">DIS</option>
+              <option value="pbv">PBV</option>
               <option value="pos">POS</option>
             </select>
           </div>
@@ -237,7 +303,7 @@
     <div class="tips">
       <div class="tip"><b>Light your face evenly</b>Face a window or lamp; avoid strong backlight and flickering lights.</div>
       <div class="tip"><b>Stay still for 15 s</b>Sit about 50 cm from the camera and breathe normally. Talking and head movement add noise.</div>
-      <div class="tip"><b>Compare the two methods</b>Move your head slightly and see which algorithm keeps a cleaner band in the spectrogram.</div>
+      <div class="tip"><b>Compare the methods</b>Move your head slightly and see which algorithm keeps a cleaner band in the spectrogram. Switch the signature between calibrated and fixed to see its effect on PBV and DIS.</div>
     </div>
 
     <h2>How it works</h2>
@@ -246,45 +312,94 @@
       <div class="card"><b>28 skin patches</b>The face region is divided into a 4 &times; 7 grid; mean R, G, B of each patch form the raw traces. The face position gives two motion traces.</div>
       <div class="card"><b>Resampling</b>Traces are resampled to a uniform 30 Hz, since webcam frame timing varies.</div>
       <div class="card"><b>Pre-processing</b>In sliding windows of 64 samples: divide by the mean (DC normalisation), 0.7&ndash;3 Hz zero-phase Butterworth band-pass, 3-tap smoothing.</div>
-      <div class="card"><b>Pulse extraction</b>POS or DIS turns each patch's colour traces into one pulse signal.</div>
+      <div class="card"><b>Pulse extraction</b>POS, PBV or DIS turns each patch's colour traces into one pulse signal.</div>
       <div class="card"><b>Patch selection</b>The 5 patches with the highest SNR at the median dominant frequency are averaged (highlighted on the video).</div>
+      <div class="card"><b>Signature calibration</b>The POS pulse serves as a reference to measure the pulse signature of your camera, which PBV and DIS then use.</div>
       <div class="card"><b>Overlap-add</b>Normalised window outputs are overlap-added (hop of 8 samples) into a continuous pulse waveform.</div>
       <div class="card"><b>Heart rate</b>A Hann-windowed spectrum of the last 10 s with 1 BPM resolution; its peak is the heart rate.</div>
     </div>
 
-    <h2>The two algorithms</h2>
+    <h2>The three algorithms</h2>
+    <p class="lede">
+      After DC normalisation, every patch gives a 3 &times; N matrix <var>C</var> of colour variations. The pulse is a
+      weighted sum of its rows, <var>h</var> = <var>w</var> &middot; <var>C</var>. The algorithms differ in what they
+      assume to find the weights <var>w</var>.
+    </p>
     <div class="algos">
       <div class="card">
         <h3>POS: Plane-Orthogonal-to-Skin</h3>
         <p>
           Changes in light intensity scale all three colour channels together, along the direction of skin tone.
-          POS projects the normalised RGB traces <var>C</var> onto a plane orthogonal to that direction,
-          which removes intensity changes and keeps the pulse:
+          POS projects the normalised RGB traces onto a plane orthogonal to that direction, which removes intensity
+          changes and keeps the pulse:
         </p>
         <div class="eq">S = [ 0 1 &minus;1 ; &minus;2 1 1 ] &middot; C</div>
         <div class="eq">h = S<sub>1</sub> + (&sigma;(S<sub>1</sub>) / &sigma;(S<sub>2</sub>)) &middot; S<sub>2</sub></div>
         <p>
           The two projections carry the pulse with different distortions, and the &ldquo;alpha tuning&rdquo; step
           weighs them by their standard deviations so the distortions cancel out. POS needs no training and no
-          assumption about the pulse colour.
+          prior knowledge of the pulse colour, which is why this demo also uses it as the calibration reference.
+        </p>
+      </div>
+      <div class="card">
+        <h3>PBV: Blood volume pulse signature</h3>
+        <p>
+          Blood volume changes alter the skin colour along one characteristic direction, the pulse signature
+          <var>pbv</var>: the relative pulse strength in R, G and B. PBV looks for the weights that give a unit
+          response along <var>pbv</var> and the smallest possible output energy:
+        </p>
+        <div class="eq">min<sub>w</sub> &Vert;w C&Vert;<sup>2</sup> &nbsp;subject to&nbsp; w &middot; pbv = 1</div>
+        <div class="eq">h = pbv &middot; (C C<sup>T</sup>)<sup>&minus;1</sup> &middot; C</div>
+        <p>
+          The pulse is guaranteed to pass, so minimising the energy suppresses everything with a different colour
+          direction, such as motion and specular reflections. The price is that <var>pbv</var> must be accurate:
+          if it points the wrong way, part of the pulse itself is treated as noise and cancelled.
         </p>
       </div>
       <div class="card">
         <h3>DIS: Discriminative signatures</h3>
         <p>
-          Blood volume changes produce a known, characteristic colour variation, the pulse blood volume (PBV)
-          signature <var>pbv</var>. DIS appends extra &ldquo;discriminative&rdquo; channels that describe the
-          distortions, here the head motion traces <var>M</var>, to the colour traces, and solves for the projection
-          that matches the pulse signature while staying orthogonal to the distortions:
+          DIS extends PBV with extra &ldquo;discriminative&rdquo; channels that describe the distortions, here the
+          head motion traces <var>M</var>. They are stacked under the colour traces, and the signature gets zeros
+          in the motion channels:
         </p>
         <div class="eq">X = [ C ; M ]</div>
         <div class="eq">h = [ pbv, 0, 0 ] &middot; (X X<sup>T</sup>)<sup>+</sup> &middot; X</div>
         <p>
-          The zeros mean &ldquo;no response to motion,&rdquo; so motion-correlated colour changes are suppressed.
-          Without motion channels this reduces to the PBV method. This demo uses
-          <var>pbv</var> = [0.33, 0.77, 0.53].
+          This is the same minimum-energy solution with a unit response to the pulse signature. Because the pulse
+          has no component in the motion channels, the solver is free to use the motion traces to cancel colour
+          changes that are correlated with motion, in one least-squares step. When no motion is measured, DIS
+          reduces to PBV.
         </p>
       </div>
+    </div>
+
+    <h2>Calibrating the signature for your camera</h2>
+    <div class="prose">
+      <p>
+        The pulse signature is set by the physics of the recording: the spectral sensitivity of each colour channel
+        of the camera, the spectrum of the light, and how blood absorbs light. For one camera and one light source it
+        is nearly the same for everyone, but it changes from camera to camera. The textbook value
+        <var>pbv</var> = [0.33, 0.77, 0.53] was measured for one RGB camera under white light, so this demo
+        measures the signature of your camera while it runs:
+      </p>
+      <ol>
+        <li>POS, which needs no signature, picks the patches with the clearest pulse.</li>
+        <li>
+          The colour traces of each of these patches are fitted to the POS pulse of the <em>other</em> patches,
+          <var>C</var> &asymp; <var>a</var> &middot; <var>h</var>. The fitted channel gains <var>a</var> are a direct
+          measurement of the signature. Using other patches as the reference, and patches chosen in an earlier,
+          non-overlapping window, keeps camera noise from biasing the result.
+        </li>
+        <li>
+          A window only counts when the pulse explains enough of the colour variation and the head is still. Good
+          windows are averaged over about 20 seconds, starting from the textbook value.
+        </li>
+      </ol>
+      <p>
+        PBV and DIS then use the calibrated signature. Switch to &ldquo;Fixed prior&rdquo; in the signature panel to
+        compare.
+      </p>
     </div>
 
     <h2>Why it matters</h2>

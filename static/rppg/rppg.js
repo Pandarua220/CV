@@ -1,11 +1,13 @@
 // rPPG signal processing: a JavaScript port of the lab's MATLAB pipeline
-// (extract_pulse.m / spec.m) with the POS and DIS core algorithms.
+// (extract_pulse.m / spec.m) with the POS, PBV and DIS core algorithms.
 //
 // Data flow per camera frame:
 //   per-patch mean RGB (+ head motion) -> uniform resampling to FS
-//   -> sliding window (L samples, hop STEP): preproc -> core (POS | DIS)
+//   -> sliding window (L samples, hop STEP): preproc -> core (POS | PBV | DIS)
 //   -> robust SNR patch selection -> overlap-add into the pulse signal
 //   -> 10 s Hann-windowed spectrum -> heart rate (BPM)
+// In every window the POS pulse also serves as the reference for calibrating
+// the blood volume pulse signature used by PBV and DIS.
 
 export const FS = 30;            // processing sample rate (Hz)
 export const L = 64;             // sliding window length (samples, ~2.1 s)
@@ -22,11 +24,23 @@ const BP_A = [1, -6.432190750328158, 18.387770585113262, -30.54002860873339, 32.
 const MA_B = [1 / 3, 1 / 3, 1 / 3];
 const MA_A = [1];
 
-// Blood volume pulse signature (de Haan & van Leest, 2014), used by DIS.
-export const PBV = [0.33, 0.77, 0.53];
+// Blood volume pulse signature measured for an RGB camera under white light
+// (de Haan & van Leest, 2014). Starting point for the online calibration.
+export const PBV_PRIOR = [0.33, 0.77, 0.53];
 
 // ---------------------------------------------------------------------------
 // Basic statistics
+
+export function unit(v) {
+  const n = Math.hypot(...v) || 1;
+  return v.map((x) => x / n);
+}
+
+export function angleDeg(a, b) {
+  const ua = unit(a), ub = unit(b);
+  const dot = ua.reduce((s, x, i) => s + x * ub[i], 0);
+  return (Math.acos(Math.min(1, Math.max(-1, dot))) * 180) / Math.PI;
+}
 
 function mean(x) {
   let s = 0;
@@ -194,9 +208,18 @@ export function pos(c) {
   return p;
 }
 
+// PBV: p = pbv * pinv(c c') * c
+export function pbv(c, signature) {
+  return signatureProjection(c, signature);
+}
+
 // DIS: p = [pbv, 0, ...] * pinv(X X') * X, with X = [c; m]
-export function dis(c, m) {
-  const X = [...c, ...m];
+export function dis(c, m, signature) {
+  return signatureProjection([...c, ...m], [...signature, ...new Array(m.length).fill(0)]);
+}
+
+// Minimum output energy subject to a unit response along the signature e.
+function signatureProjection(X, e) {
   const k = X.length, n = X[0].length;
   const R = Array.from({ length: k }, () => new Array(k).fill(0));
   for (let i = 0; i < k; i++) {
@@ -207,7 +230,6 @@ export function dis(c, m) {
     }
   }
   const Rp = pinvSym(R);
-  const e = [...PBV, ...new Array(k - 3).fill(0)];
   const w = new Array(k).fill(0);
   for (let j = 0; j < k; j++) for (let i = 0; i < k; i++) w[j] += e[i] * Rp[i][j];
   const p = new Float64Array(n);
@@ -294,12 +316,126 @@ export function heartRate(pulse, fs = FS) {
 }
 
 // ---------------------------------------------------------------------------
+// Online calibration of the blood volume pulse signature.
+//
+// The signature depends on the camera's spectral response and the light
+// source, so the prior is only approximately right for an unknown webcam.
+// POS needs no signature, so its pulse is used as the reference: the colour
+// traces of each good patch are regressed onto the POS pulse of the *other*
+// good patches. The resulting channel gains are a direct measurement of the
+// signature. To keep noise from biasing the direction of the estimate:
+//  - sensor noise is independent across patches, so a patch never serves as
+//    its own reference;
+//  - the good patches are those picked in a non-overlapping earlier window,
+//    so a patch is never chosen because of its noise in the current window;
+//  - raw gains are averaged and only the average is normalised.
+// Windows with head motion are skipped: a motion residual in the POS pulse
+// would otherwise pull the estimate towards the colour direction of motion.
+
+function correlation(a, b) {
+  const ma = mean(a), mb = mean(b);
+  let ab = 0, aa = 0, bb = 0;
+  for (let i = 0; i < a.length; i++) {
+    ab += (a[i] - ma) * (b[i] - mb);
+    aa += (a[i] - ma) ** 2;
+    bb += (b[i] - mb) ** 2;
+  }
+  return ab / Math.sqrt(aa * bb + 1e-30);
+}
+
+export class SignatureCalibrator {
+  constructor(prior = PBV_PRIOR, { tau = 75, minR2 = 0.1, priorWeight = 10, maxMotionCorr = 0.3, maxVarRatio = 2.5 } = {}) {
+    this.prior = unit(prior);
+    this.tau = tau;                      // memory of the running average (windows)
+    this.minR2 = minR2;                  // min. share of colour variance explained by the pulse
+    this.priorWeight = priorWeight;      // the prior counts as this many good windows
+    this.maxMotionCorr = maxMotionCorr;  // max. |correlation| of the POS pulse with motion
+    this.maxVarRatio = maxVarRatio;      // max. colour variance relative to the recent median
+    this.reset();
+  }
+
+  reset() {
+    this.signature = this.prior.slice();
+    this.gain = [0, 0, 0];  // running average of the measured channel gains
+    this.accepted = 0;
+    this.windows = 0;
+    this.lastR2 = 0;
+    this.lastReason = '';
+    this.variances = [];    // colour variance of recent windows
+  }
+
+  // P: z-scored POS pulse of every patch; patches: good patches chosen in an
+  // earlier, non-overlapping window; colorRows: pre-processed [r, g, b]
+  // traces of every patch; motion: pre-processed motion traces.
+  update(P, patches, colorRows, motion = []) {
+    this.windows++;
+    if (patches.length < 2) return false;
+    const n = P[0].length;
+
+    const pulse = new Float64Array(n);
+    for (const q of patches) for (let t = 0; t < n; t++) pulse[t] += P[q][t];
+    if (motion.some((m) => Math.abs(correlation(pulse, m)) > this.maxMotionCorr)) {
+      this.lastReason = 'motion';
+      return false;
+    }
+    let variance = 0;
+    for (const p of patches) for (const x of colorRows[p]) for (let t = 0; t < n; t++) variance += x[t] * x[t];
+    this.variances.push(variance);
+    if (this.variances.length > 60) this.variances.shift();
+    if (this.variances.length >= 10 && variance > this.maxVarRatio * median(this.variances)) {
+      this.lastReason = 'motion';
+      return false;
+    }
+
+    const gain = [0, 0, 0];
+    let explained = 0, total = 0;
+    for (const p of patches) {
+      const ref = new Float64Array(n);
+      for (const q of patches) if (q !== p) for (let t = 0; t < n; t++) ref[t] += P[q][t];
+      let rr = 0;
+      for (let t = 0; t < n; t++) rr += ref[t] * ref[t];
+      for (let k = 0; k < 3; k++) {
+        const x = colorRows[p][k];
+        let xr = 0, xx = 0;
+        for (let t = 0; t < n; t++) { xr += x[t] * ref[t]; xx += x[t] * x[t]; }
+        gain[k] += xr / rr / patches.length;
+        explained += (xr * xr) / rr;
+        total += xx;
+      }
+    }
+    const r2 = explained / (total + 1e-30);
+    this.lastR2 = r2;
+    if (r2 < this.minR2) {
+      this.lastReason = 'weak';
+      return false;
+    }
+    this.lastReason = '';
+    if (gain.reduce((s, g, k) => s + g * this.signature[k], 0) < 0) for (let k = 0; k < 3; k++) gain[k] = -gain[k];
+    const beta = Math.max(1 / (this.accepted + 1), 1 / this.tau);
+    this.gain = this.gain.map((g, k) => (1 - beta) * g + beta * gain[k]);
+    this.accepted++;
+    // shrink towards the prior until enough good windows have been seen; a
+    // blood volume pulse modulates all channels in the same direction
+    const w = this.priorWeight / (this.priorWeight + this.accepted);
+    const measured = unit(this.gain);
+    this.signature = unit(measured.map((g, k) => Math.max(0.01, w * this.prior[k] + (1 - w) * g)));
+    return true;
+  }
+
+  get deviation() {
+    return angleDeg(this.signature, this.prior);
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Streaming engine
 
 export class RPPGEngine {
-  constructor(nPatches, methods = ['pos', 'dis']) {
+  constructor(nPatches, { methods = ['pos', 'pbv', 'dis'], calibrator = new SignatureCalibrator() } = {}) {
     this.nPatches = nPatches;
     this.methods = methods;
+    this.calibrator = calibrator;
+    this.useCalibrated = true;  // PBV/DIS use the calibrated signature, else the prior
     this.capacity = FS * 30;
     this.reset();
   }
@@ -315,6 +451,7 @@ export class RPPGEngine {
     this.pulse = {};        // finalised pulse samples, keyed by method
     for (const m of this.methods) { this.acc[m] = new Map(); this.pulse[m] = []; }
     this.selected = {};
+    this.posHistory = [];   // POS patch selections of recent windows
     this.rawFrames = 0;
     this.firstFrameT = null;
   }
@@ -366,9 +503,21 @@ export class RPPGEngine {
     for (let p = 0; p < K; p++) {
       colorRows.push([preproc(channel(3 * p)), preproc(channel(3 * p + 1)), preproc(channel(3 * p + 2))]);
     }
+    // POS runs first: it is one of the outputs and the calibration reference.
+    const posP = colorRows.map((c) => zscore(pos(c)));
+    const posSel = selectSnrRob(posP);
+    this.posHistory.push(posSel.selected);
+    if (this.posHistory.length > L / STEP) {
+      // patches selected in the window that ended where this one starts
+      this.calibrator.update(posP, this.posHistory.shift(), colorRows, motion);
+    }
+    const signature = this.useCalibrated ? this.calibrator.signature : this.calibrator.prior;
+    const core = {
+      pbv: (c) => pbv(c, signature),
+      dis: (c) => dis(c, motion, signature),
+    };
     for (const method of this.methods) {
-      const P = colorRows.map((c) => zscore(method === 'pos' ? pos(c) : dis(c, motion)));
-      const { h, selected } = selectSnrRob(P);
+      const { h, selected } = method === 'pos' ? posSel : selectSnrRob(colorRows.map((c) => zscore(core[method](c))));
       this.selected[method] = selected;
       const hn = zscore(h);
       const acc = this.acc[method];

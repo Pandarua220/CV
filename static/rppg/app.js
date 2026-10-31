@@ -1,4 +1,4 @@
-import { RPPGEngine, FS, BPM_RANGE } from './rppg.js';
+import { RPPGEngine, SignatureCalibrator, FS, BPM_RANGE } from './rppg.js';
 
 // Face ROI is split into a 4 x 7 grid of skin patches (28 areas, as in the
 // lab dataset); the robust SNR selection keeps the 5 best ones per window.
@@ -8,13 +8,14 @@ const N_PATCHES = GRID_COLS * GRID_ROWS;
 const PROC_WIDTH = 320;
 const MEDIAPIPE = 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14';
 const FACE_MODEL = 'https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite';
-const METHODS = { pos: 'POS', dis: 'DIS' };
+const METHODS = { pos: 'POS', pbv: 'PBV', dis: 'DIS' };
 
 const $ = (id) => document.getElementById(id);
 const els = {
   start: $('start'), stop: $('stop'), video: $('video'), view: $('view'), placeholder: $('placeholder'),
   status: $('status'), tracker: $('tracker'), fps: $('fps'), progress: $('progress'), progressBar: $('progress-bar'),
   spectrum: $('spectrum'), spectrogram: $('spectrogram'), specMethod: $('spec-method'),
+  sigStatus: $('sig-status'), sigMeta: $('sig-meta'), sigReset: $('sig-reset'),
 };
 for (const m of Object.keys(METHODS)) {
   els[m] = { bpm: $(`${m}-bpm`), quality: $(`${m}-quality`), wave: $(`${m}-wave`) };
@@ -25,6 +26,9 @@ const procCtx = proc.getContext('2d', { willReadFrequently: true });
 const viewCtx = els.view.getContext('2d');
 
 let engine = null;
+// the signature belongs to the camera and lighting, so it survives restarts
+const calibrator = new SignatureCalibrator();
+let useCalibrated = true;
 let stream = null;
 let detector = null;
 let detectorState = 'none';
@@ -34,13 +38,17 @@ let lastFaceT = 0;
 let lastDetectT = 0;
 let lastUiT = 0;
 let lastEstimateT = 0;
-let history = { pos: [], dis: [] };
+let history = emptyHistory();
 let estimates = {};
 let spectrogram = [];
 let specMethod = 'dis';
 
 function css(name) {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function emptyHistory() {
+  return Object.fromEntries(Object.keys(METHODS).map((m) => [m, []]));
 }
 
 function setStatus(text) {
@@ -370,6 +378,23 @@ function drawSpectrogram() {
   }
 }
 
+function updateSignature() {
+  const sig = calibrator.signature;
+  ['r', 'g', 'b'].forEach((ch, k) => {
+    $(`sig-${ch}`).style.width = `${sig[k] * 100}%`;
+    $(`prior-${ch}`).style.left = `${calibrator.prior[k] * 100}%`;
+    $(`sig-${ch}-val`).textContent = sig[k].toFixed(2);
+  });
+  const n = calibrator.accepted;
+  let status = 'Prior';
+  if (n >= calibrator.tau) status = 'Calibrated';
+  else if (n > 0) status = `Calibrating ${Math.round((100 * n) / calibrator.tau)}%`;
+  if (running && calibrator.lastReason === 'motion') status += ' · paused (motion)';
+  els.sigStatus.textContent = status;
+  els.sigStatus.dataset.state = n >= calibrator.tau ? 'ok' : '';
+  els.sigMeta.textContent = `${calibrator.deviation.toFixed(1)}° from prior · ${n} of ${calibrator.windows} windows used`;
+}
+
 function quality(snrDb) {
   if (snrDb >= 2) return ['Good signal', 'good'];
   if (snrDb >= -3) return ['Fair signal', 'fair'];
@@ -405,6 +430,7 @@ function updateUi() {
   }
   drawSpectrum();
   drawSpectrogram();
+  updateSignature();
 }
 
 // ---------------------------------------------------------------------------
@@ -427,8 +453,9 @@ async function start() {
   }
   els.video.srcObject = stream;
   await els.video.play();
-  engine = new RPPGEngine(N_PATCHES, Object.keys(METHODS));
-  history = { pos: [], dis: [] };
+  engine = new RPPGEngine(N_PATCHES, { methods: Object.keys(METHODS), calibrator });
+  engine.useCalibrated = useCalibrated;
+  history = emptyHistory();
   estimates = {};
   spectrogram = [];
   face = null;
@@ -462,6 +489,17 @@ els.specMethod.addEventListener('change', (e) => {
   specMethod = e.target.value;
   spectrogram = [];
 });
+document.querySelectorAll('input[name="sig-mode"]').forEach((input) => {
+  input.addEventListener('change', () => {
+    useCalibrated = input.value === 'calibrated';
+    if (engine) engine.useCalibrated = useCalibrated;
+  });
+});
+els.sigReset.addEventListener('click', () => {
+  calibrator.reset();
+  updateSignature();
+});
+updateSignature();
 document.addEventListener('visibilitychange', () => {
   if (document.hidden && running) stop();
 });
