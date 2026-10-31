@@ -44,7 +44,7 @@ education:
     institution: Vanderbilt University, Nashville, TN, USA
     date_start: 2026-08-01
     summary: |
-      Supervised by [Dr. Yuankai Huo](https://hrlblab.github.io/). Research on _AI for healthcare_.
+      Supervised by [Dr. Yuankai Huo](https://hrlblab.github.io/). Research on _computer vision_.
 
   - area: B.Eng. in Biomedical Engineering
     institution: Southern University of Science and Technology (SUSTech), Shenzhen, China
