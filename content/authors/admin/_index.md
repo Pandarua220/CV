@@ -157,7 +157,7 @@ awards:
 
 ## About Me
 
-I am a first-year PhD student in Computer Science at Vanderbilt. My current research interest lies on AI for Healthcare, where I am particularly interested in leveraging artificial intelligence to optimize clinical workflows and improve diagnostic accuracy. Before joining Vanderbilt, I received my B.Eng. degree in Biomedical Engineering from Southern University of Science and Technology (SUSTech) in 2026. Outside of research, I enjoy playing badminton and am trying tennis.
+I am a first-year PhD student in Computer Science at Vanderbilt. My current research interest lies on AI for Healthcare, where I am particularly interested in leveraging artificial intelligence to optimize clinical workflows and improve diagnostic accuracy. Before joining Vanderbilt, I received my B.Eng. degree in Biomedical Engineering from Southern University of Science and Technology (SUSTech) in 2026. At SUSTech, I was supervised by [Dr. Wenjin Wang](https://sites.google.com/site/rppgwenjin), focusing on the applications of remote photoplethysmography ([rPPG]({{< relurl "rppg/" >}})). Outside of research, I enjoy playing badminton and am trying tennis.
 
 E-mail: yiming.zhong@vanderbilt.edu
 
