@@ -1,0 +1,19 @@
+/* Larger profile photo on the homepage (theme default: 150px) */
+.resume-biography .avatar-wrapper {
+  width: 240px;
+  height: 240px;
+}
+
+.resume-biography .avatar {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+}
+
+@media (max-width: 640px) {
+  .resume-biography .avatar-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+}
