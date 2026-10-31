@@ -25,12 +25,12 @@ main:
     url: /#experience
     weight: 13
 
-  - name: Volunteer & Leadership
-    url: /#volunteers
-    weight: 14
-
   - name: rPPG Demo
     url: /#rppg
+    weight: 14
+
+  - name: Volunteer & Leadership
+    url: /#volunteers
     weight: 15
   # - name: Teaching
   #   url: teaching/

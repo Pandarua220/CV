@@ -66,6 +66,16 @@ sections:
       date_format: 'January 2006'
       # Education or Experience section first?
       is_education_first: false
+
+  - block: rppg-demo
+    id: rppg
+    content:
+      title: rPPG Demo
+      text: |-
+        Every heartbeat changes the blood flow in the vessels of your face, which slightly changes the intensity of the light reflected by your skin. By capturing these changes with your camera, we calculate your heart rate. This technique is called **remote photoplethysmography (rPPG)**.
+
+        The demo runs the rPPG algorithms used in the Contactless Healthcare Lab led by [Prof. Wenjin Wang](https://sites.google.com/site/rppgwenjin) at SUSTech, entirely in your browser. For details, see [Algorithmic Principles of Remote PPG](https://doi.org/10.1109/TBME.2016.2609282) (Wang et al., *IEEE TBME*, 2017).
+
   - block: resume-skills
     content:
       title: Skills & Hobbies
@@ -92,15 +102,6 @@ sections:
       view: article-grid
       columns: 3
 
-  - block: rppg-demo
-    id: rppg
-    content:
-      title: rPPG Demo
-      text: |-
-        Every heartbeat changes the blood flow in the vessels of your face, which slightly changes the intensity of the light reflected by your skin. By capturing these changes with your camera, we calculate your heart rate. This technique is called **remote photoplethysmography (rPPG)**.
-
-        The demo runs the rPPG algorithms used in the Contactless Healthcare Lab led by [Prof. Wenjin Wang](https://sites.google.com/site/rppgwenjin) at SUSTech, entirely in your browser. For details, see [Algorithmic Principles of Remote PPG](https://doi.org/10.1109/TBME.2016.2609282) (Wang et al., *IEEE TBME*, 2017).
-      
   # - block: collection
   #   content:
   #     title: Recent Publications

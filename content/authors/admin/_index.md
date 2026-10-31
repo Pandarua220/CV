@@ -40,6 +40,12 @@ interests:
   - Medical Image Analysis
 
 education:
+  - area: Ph.D. in Computer Science
+    institution: Vanderbilt University, Nashville, TN, USA
+    date_start: 2026-08-01
+    summary: |
+      Supervised by [Dr. Yuankai Huo](https://hrlblab.github.io/). Research on _AI for healthcare_.
+
   - area: B.Eng. in Biomedical Engineering
     institution: Southern University of Science and Technology (SUSTech), Shenzhen, China
     date_start: 2022-09-01
@@ -48,14 +54,14 @@ education:
       Cumulative GPA: 3.79/4.0 | Weighted Average Score: 90.68/100
 
       Thesis on _AI for healthcare_. Supervised by [Prof Wenjin Wang](https://sites.google.com/site/rppgwenjin) . Presented papers at 2 IEEE conferences (1 in EMBC and 1 in BHI), and 1 TBME journal paper is under review.
+
+      Courses included:
+      - Big Medical Data
+      - Biomedical Optics
+      - Principle of Biomedical Imaging
     # button:
     #   text: 'Read Thesis'
     #   url: 'https://example.com'
-
-    Courses included:
-      - Big Medical Data
-      - Biomedical Optics
-      - Priciple of Biomedical Imaging
 
   - area: Exchange student
     institution: Nanyang Technological University (NTU), Singapore
