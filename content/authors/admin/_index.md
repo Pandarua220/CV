@@ -40,7 +40,7 @@ interests:
   - Medical Image Analysis
 
 education:
-  - area: Bachelor
+  - area: B.Eng. in Biomedical Engineering
     institution: Southern University of Science and Technology (SUSTech), Shenzhen, China
     date_start: 2022-09-01
     date_end: 2026-07-01
@@ -157,7 +157,7 @@ awards:
 
 ## About Me
 
-I am a first-year PhD student in Computer Science at Vanderbilt. My current research interest lies on AI for Healthcare, where I am particularly interested in leveraging artificial intelligence to optimize clinical workflows and improve diagnostic accuracy. Before joining Vanderbilt, I received my B.S degree from the Department of Biomedical Engineering at Southern University of Science and Technology (SUSTech) in 2026. Outside of research, I enjoy playing badminton and am trying tennis.
+I am a first-year PhD student in Computer Science at Vanderbilt. My current research interest lies on AI for Healthcare, where I am particularly interested in leveraging artificial intelligence to optimize clinical workflows and improve diagnostic accuracy. Before joining Vanderbilt, I received my B.Eng. degree in Biomedical Engineering from Southern University of Science and Technology (SUSTech) in 2026. Outside of research, I enjoy playing badminton and am trying tennis.
 
 E-mail: yiming.zhong@vanderbilt.edu
 

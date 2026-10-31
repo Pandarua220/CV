@@ -10,13 +10,11 @@ links:
     url: rppg/
 ---
 
-Measure your own heart rate with your webcam, right in the browser. The demo runs the remote photoplethysmography (rPPG) algorithms my undergraduate lab used for contactless monitoring of neonates in the NICU: **POS** (Plane-Orthogonal-to-Skin), **PBV** (blood volume pulse signature) and **DIS** (discriminative signatures with head-motion channels).
+Measure your own heart rate with your webcam, right in the browser. Every heartbeat changes the blood flow in the vessels of the face, which slightly changes the intensity of the light reflected by the skin; by capturing these changes with the camera, the demo calculates the heart rate.
 
 <!--more-->
 
-The pipeline is a JavaScript port of our MATLAB code. It splits the face into 28 skin patches, applies sliding-window DC normalisation and 0.7–3 Hz band-pass filtering, extracts the pulse with POS, PBV or DIS, keeps the 5 patches with the best SNR, overlap-adds the windows, and reads the heart rate off a 10-second spectrum.
-
-Because the pulse signature used by PBV and DIS depends on the camera and the lighting, the demo calibrates it live for each visitor's camera, using the POS pulse as the reference.
+The demo runs the remote photoplethysmography (rPPG) algorithms used in [Prof. Wenjin Wang's lab](https://sites.google.com/site/rppgwenjin) at SUSTech, where I did my undergraduate research: **POS**, **PBV** and **DIS**. For details, see [Algorithmic Principles of Remote PPG](https://doi.org/10.1109/TBME.2016.2609282) (Wang et al., IEEE TBME, 2017).
 
 All processing happens locally in your browser. No video is uploaded or stored.
 
