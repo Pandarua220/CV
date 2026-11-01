@@ -29,7 +29,10 @@ Email:
   - name: yiming.zhong@vanderbilt.edu
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
-# profiles:
+profiles:
+  - icon: brands/github
+    url: https://github.com/Pandarua220
+    label: GitHub
 #   - icon: at-symbol
 #     url: 'Zhongym2026@163.com'
 #     label: E-mail Me
